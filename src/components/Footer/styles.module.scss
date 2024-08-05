@@ -1,0 +1,102 @@
+$auth-footer-text-color: #737373;
+$auth-footer-font-size: 13px;
+
+.footerWrapper {
+  padding: 80px 15% 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  color: $auth-footer-text-color;
+  font-family: var(--font-ubuntu);
+
+  @media (max-width: 1024px) {
+    padding: 80px 8% 40px;
+  }
+
+  @media (max-width: 800px) {
+    padding: 30px 20px 40px;
+    position: unset;
+  }
+
+  .socialMediaIcons {
+    display: flex;
+    color: white;
+    font-size: 30px;
+    gap: 40px;
+    cursor: pointer;
+  }
+
+  .footerLinks {
+    margin-top: -20px;
+    color: rgb(120, 120, 120);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 15px;
+    font-size: 16px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    a,
+    p {
+      display: block;
+      margin: 20px 0;
+      cursor: pointer;
+      width: max-content;
+      text-decoration: none;
+      color: inherit;
+
+      @media (max-width: 1024px) {
+        margin: 20px 0 0;
+        font-size: 14px;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .cta {
+    font-family: var(--font-ubuntu);
+    font-size: 18px;
+    width: max-content;
+    border: 1px solid rgb(120, 120, 120);
+    color: rgb(120, 120, 120);
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+      color: white;
+    }
+
+    @media (max-width: 800px) {
+      font-size: 14px;
+    }
+  }
+
+  .trademark {
+    user-select: none;
+    color: rgb(120, 120, 120);
+    font-family: var(--font-ubuntu);
+    font-size: 14px;
+  }
+}
+
+.smallFont {
+  font-size: $auth-footer-font-size !important;
+}
+
+//Fixing the footer on very large screens
+.fixedOnBottom {
+  @media (min-width: 2040px) {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}

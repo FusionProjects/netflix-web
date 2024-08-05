@@ -1,0 +1,8 @@
+.registrationWrapper {
+  background: #fff;
+  font-family: var(--font-rubik);
+
+  @media (max-width: 800px) {
+    height: 100%;
+  }
+}

@@ -1,0 +1,87 @@
+$primary-color: #e50914;
+$primary-hover-color: #ff0c18;
+$max-width-allowed: 340px;
+
+@mixin flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.introWrapper {
+  @include flexbox();
+  align-items: flex-start;
+  height: 100%;
+  padding: 5% 0 10%;
+
+  & > div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    .stepLogo {
+      height: 70px;
+      width: 70px;
+    }
+
+    h1 {
+      max-width: $max-width-allowed;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    ul {
+      max-width: calc($max-width-allowed - 10%);
+      margin: auto;
+
+      li {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin: 20px 0;
+
+        & > svg {
+          flex-shrink: 0;
+        }
+
+        h3 {
+          text-align: left;
+          font-weight: 400;
+          font-size: 18px;
+        }
+      }
+    }
+
+    button {
+      width: $max-width-allowed;
+      border-radius: 5px;
+      padding: 20px 0;
+      border: none;
+      outline: none;
+      color: #fff;
+      font-size: 24px;
+      background: $primary-color;
+      cursor: pointer;
+
+      &:hover {
+        background: $primary-hover-color;
+      }
+    }
+  }
+}
+
+.fadeInFromRight {
+  opacity: 0;
+  transform: translateX(100px);
+  animation: fade-in-from-right 1s forwards;
+
+  @keyframes fade-in-from-right {
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

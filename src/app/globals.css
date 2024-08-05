@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+:root {
+  --background: #141414;
+}
+
+.full-bleed {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.defaultBg {
+  background: var(--background);
+}
+
+.darkBg {
+  background: #000;
+}
+
+.transparentBg {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.layouted {
+  display: grid;
+  grid-template-columns: 1fr calc(min(80rem, 100%)) 1fr;
+
+  & * {
+    grid-column: 2;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .transparentBg {
+    background: #000;
+  }
+}

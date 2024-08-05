@@ -1,0 +1,250 @@
+$primary-color: #e50914;
+$secondary-color: #8c8c8c;
+$orange: #e87c03;
+$input-font-size: 16px;
+$input-font-size-mobile: 14px;
+$mobile-padding: 10px;
+$input-padding-left: 8%;
+$input-padding-left-mobile: 6%;
+
+@mixin flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginWrapper {
+  height: 100%;
+  position: relative;
+  color: #ffffff;
+  font-family: var(--font-rubik);
+  padding-bottom: 100px;
+
+  @media (max-width: 800px) {
+    padding-bottom: 40px;
+  }
+
+  .background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    filter: brightness(0.6);
+    height: 100vh;
+    width: 100vw;
+
+    // To match background color in mobile
+    @media (max-width: 800px) {
+      background: #000;
+    }
+  }
+
+  .heroSection {
+    padding: 1.5% 3%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @media (max-width: 800px) {
+      gap: 25px;
+    }
+
+    & > svg {
+      @media (max-width: 800px) {
+        margin: 20px 0 0 $mobile-padding;
+      }
+    }
+
+    .flexbox {
+      height: 100%;
+      @include flexbox();
+
+      .formConatiner {
+        height: max-content;
+        width: max-content;
+        background: rgb(0, 0, 0, 0.75);
+        padding: 60px;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        @media (max-width: 800px) {
+          padding: $mobile-padding;
+          width: 100%;
+          gap: 20px;
+        }
+
+        & h1 {
+          font-size: 32px;
+          font-weight: 500;
+          letter-spacing: 1.5px;
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+
+          .inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 350px;
+
+            @media (max-width: 800px) {
+              width: 100%;
+            }
+
+            .inputContainer {
+              width: 100%;
+              position: relative;
+              font-size: $input-font-size;
+
+              @media (max-width: 800px) {
+                font-size: $input-font-size-mobile;
+              }
+
+              & > label {
+                color: $secondary-color;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                padding-left: $input-padding-left;
+                transition: all 0.5s;
+
+                @media (max-width: 800px) {
+                  padding-left: $input-padding-left-mobile;
+                }
+              }
+
+              & > input {
+                color: #fff;
+                width: 100%;
+                border-radius: 5px;
+                height: 55px;
+                background: #333333;
+                border: none;
+                outline: none;
+                padding: 20px $input-padding-left 0;
+                letter-spacing: 0.5px;
+
+                @media (max-width: 800px) {
+                  padding-left: $input-padding-left-mobile;
+                }
+
+                &[data-input-error='true'] {
+                  box-shadow: 0 2px 0 0 $orange;
+                }
+
+                &:focus ~ label,
+                &:not(:placeholder-shown) ~ label {
+                  font-size: 12px;
+                  top: 30%;
+                }
+
+                &:focus ~ .passwordVisibilty,
+                &:not(:placeholder-shown) ~ .passwordVisibilty {
+                  opacity: 1;
+                }
+              }
+
+              .passwordVisibilty {
+                opacity: 0;
+                color: $secondary-color;
+                font-size: 16px;
+                position: absolute;
+                top: 50%;
+                right: 5%;
+                transform: translateY(-50%);
+                transition: all 0.5s;
+                cursor: pointer;
+              }
+            }
+          }
+
+          button {
+            background: $primary-color;
+            color: #fff;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 0;
+            font-size: $input-font-size;
+            cursor: pointer;
+          }
+
+          .loading {
+            background: rgba($color: $primary-color, $alpha: 0.4) !important;
+            pointer-events: none;
+          }
+
+          .helpSection {
+            @include flexbox();
+            justify-content: space-between;
+            margin-top: -10px;
+
+            .rememberMe {
+              @include flexbox();
+              gap: 5px;
+              font-size: 14px;
+              color: $secondary-color;
+            }
+
+            & p {
+              font-size: 14px;
+              color: $secondary-color;
+              cursor: pointer;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
+        .signUp {
+          @include flexbox();
+          justify-content: flex-start;
+          color: $secondary-color;
+          font-size: $input-font-size;
+          white-space: pre;
+
+          & > a {
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          span {
+            margin-left: 10px;
+            transform: translateY(1px);
+          }
+        }
+      }
+    }
+  }
+}
+
+.error {
+  color: $orange;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-left: 2px;
+
+  @media (max-width: 800px) {
+    font-size: 13px;
+  }
+}
+
+.footerDivider {
+  height: 1px;
+  width: 100%;
+  background: rgba(229, 229, 229, 0.3);
+}
